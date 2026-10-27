@@ -1,26 +1,143 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* Design tokens — mirrors the Figma "Color" and "Dimension" variable collections. */
+@theme {
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-ink: #0e0e0e; /* text/primary, border/strong */
+  --color-secondary: #5e5e5e; /* text/secondary */
+  --color-tertiary: #9a9893; /* text/tertiary */
+  --color-line: #d9d7d1; /* border/line */
+  --color-canvas: #f2f1ee; /* bg/canvas */
+  --color-muted: #e7e5e0; /* bg/muted */
+  --color-surface: #ffffff; /* bg/surface */
+  --color-court-blue: #1f5fa8;
+  --color-court-deep: #0e3f7a;
+  --color-lime: #d7f23a;
+  --color-error: #c8362b;
+  --color-success: #2e7d4f;
+
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Hover or keyboard focus — shared by the element and its group children. */
+@custom-variant hov (&:is(:hover, :focus-visible));
+@custom-variant group-hov (.group:is(:hover, :focus-visible) &);
+
+/* Type styles from Figma. Figma letter-spacing is in %, so 8 → 0.08em. */
+@utility text-display {
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+/* Display sizes scale down with the viewport; max values are the 1440 design. */
+/* Sized to the hero panel (an @container) so "MOVE BETTER" always fits one line. */
+@utility text-hero {
+  font-size: min(16cqi, 212px);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+@utility text-display-xl {
+  font-size: clamp(56px, 11.5vw, 168px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+@utility text-section {
+  font-size: clamp(52px, 9vw, 128px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+@utility text-display-md {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 300;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+@utility text-display-sm {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+@utility text-body-lg {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+@utility text-body {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.002em;
+}
+@utility text-body-sm {
+  font-size: 13px;
+  line-height: 1.45;
+}
+@utility text-h3 {
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+@utility text-h4 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+@utility text-caps {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@utility text-button {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+@utility text-nav {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+@utility text-stat {
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+html {
+  /* Smooth scrolling comes from Lenis (SmoothScroll). */
+  /* Anchor jumps clear the sticky header (64px compact, 96px desktop). */
+  scroll-padding-top: 64px;
+}
+/* Scrollbars hidden site-wide (page and inner scroll areas); scrolling itself still works. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 64rem) {
+  html {
+    scroll-padding-top: 96px;
+  }
 }

@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="760" height="520" viewBox="0 0 760 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Map texture" clip-path="url(#clip0_0_25)">
+<g id="Group">
+<path id="Vector" d="M0 80H120M120 80H300M120 80V0M120 80V200M300 80H470M300 80V0M300 80V200M470 80H640M470 80V0M470 80V200M640 80H760M640 80V0M640 80V200M0 200H120M120 200H300M120 200V330M300 200H470M300 200V330M470 200H640M470 200V330M640 200H760M640 200V330M0 330H120M120 330H300M120 330V450M300 330H470M300 330V450M470 330H640M470 330V450M640 330H760M640 330V450M0 450H120M120 450H300M120 450V520M300 450H470M300 450V520M470 450H640M470 450V520M640 450H760M640 450V520" stroke="#CFCCC5"/>
+</g>
+<path id="Vector_2" d="M-10 400C200 360 260 220 420 240C580 260 640 120 780 60" stroke-width="14" stroke="white"/>
+<path id="Vector_3" d="M200 -10L330 540" stroke-width="9" stroke="white"/>
+</g>
+<defs>
+<clipPath id="clip0_0_25">
+<rect width="760" height="520" fill="white"/>
+</clipPath>
+</defs>
+</svg>
